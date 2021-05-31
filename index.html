@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Calendar
+    </title>
+    <link rel="stylesheet" href="css/calendar.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+</head>
+
+<body onload="renderDate()">
+    <div class="wrapper">
+        <div class="calendar">
+            <div class="month">
+                <div class="prev" onclick="moveDate('prev')">
+                    <span>&#10094</span>
+                </div>
+                <div>
+                    <h2 id="month"></h2>
+                    <p id="date"></p>
+                </div>
+                <div class="next" onclick="moveDate('next')">
+                    <span>&#10095</span>
+                </div>
+            </div>
+            <div id="weekend">
+           
+            </div>
+            <div class="days">
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Add Event</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+          
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Date :</label>
+                    <input type="text" value="" class="form-control" id="txtDate" />
+                  </div> 
+                   <div class="form-group">
+                    <label for="recipient-name" class="col-form-label"
+                      >Time :</label>
+                    <input type="time" class="form-control" id="txtTime" />
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Title :</label>
+                    <input type="text" class="form-control" id="txtTitle" />
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label"
+                      >Description :</label
+                    >
+                    <textarea class="form-control" id="txtDes"></textarea>
+                  </div>
+                </form>
+              </div>
+          
+              <!-- Modal Buttons -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary" onclick="addEventData();">
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+     <!-- view model div -->
+     <div class="modal" id="viewModel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">View Event</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            
+            <form method="POST">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Time</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody id="dd">
+                  <div class="form-group">
+                  <input type="hidden" class="form-control" id="viewDate"  value=""/>
+                  </div>
+                </tbody>
+              </table>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+    </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="js/calendar.js"></script>
+</body>
+
+</html>
